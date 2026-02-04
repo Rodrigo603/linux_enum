@@ -5,7 +5,7 @@ date >> "$OUTPUT"
 
 source /etc/os-release
 
-
+WIDTH=18
 DISTRO_NAME="$NAME"
 DISTRO_VERSION="$VERSION"
 DISTRO_ID="$ID"
@@ -17,7 +17,10 @@ HOSTNAME=$(uname -n)
 KERNEL_RELEASE=$(uname -r)
 KERNEL_VERSION=$(uname -v)
 ARCH=$(uname -m)
-WIDTH=18
+
+
+LOGGED_USERS=$(who)
+TERMINAL_USERS=$(cat /etc/passwd | grep -vE "nologin|false|sync")
 
 
 echo -e "\n====================" >> "$OUTPUT"
@@ -43,6 +46,14 @@ printf "%-${WIDTH}s : %s\n"  "Kernel release" "$KERNEL_RELEASE" >> "$OUTPUT"
 printf "%-${WIDTH}s : %s\n" "Kernel version"  "$KERNEL_VERSION" >> "$OUTPUT"
 printf "%-${WIDTH}s : %s\n"  "Architecture"   "$ARCH" >> "$OUTPUT"
 
+echo -e "\n===================" >> "$OUTPUT"
+echo -e "       Users" >> "$OUTPUT"
+echo -e "===================\n" >> "$OUTPUT"
+
+echo -e "Logged users:\n" >> "$OUTPUT"
+printf "%s\n" "$LOGGED_USERS" >> "$OUTPUT"
+echo -e "\nUsers who have acess to terminal:\n" >> "$OUTPUT"
+printf "%s\n" "$TERMINAL_USERS" >> "$OUTPUT"
 
 
 
