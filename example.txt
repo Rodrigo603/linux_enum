@@ -1,4 +1,3 @@
-guest-6i4krq@vtcsec:/tmp$ cat output.txt
 Linux Enumeration Script
 Mon Feb 9 14:59:32 EST 2026
 
