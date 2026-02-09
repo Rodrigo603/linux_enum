@@ -26,6 +26,12 @@ TERMINAL_USERS=$(cat /etc/passwd | grep -vE "nologin|false|sync")
 SUID_BINARIES=$(find / -perm -4000 -type f 2>/dev/null)
 SGID_BINARIES=$(find / -perm -2000 -type f 2>/dev/null)
 
+CURRENT_USER=$(whoami)
+USER_ID=$(id)
+USER_GROUPS=$(id -nG)
+SUDO_PERMISSIONS=$(sudo -l 2>/dev/null)
+
+
 echo -e "\n====================" >> "$OUTPUT"
 echo -e "   OS information" >> "$OUTPUT"
 echo -e "====================\n\n" >> "$OUTPUT"
@@ -85,4 +91,35 @@ echo -e "-------------------\n" >> "$OUTPUT"
 printf "%s\n" "$SGID_BINARIES" >> "$OUTPUT"
 
 
+echo -e "\n===================" >> "$OUTPUT"
+echo -e "   User context" >> "$OUTPUT"
+echo -e "===================\n" >> "$OUTPUT"
 
+echo -e "\n-------------------" >> "$OUTPUT"
+echo -e "   Current user" >> "$OUTPUT"
+echo -e "-------------------\n" >> "$OUTPUT"
+
+printf "%s\n" "$CURRENT_USER" >> "$OUTPUT"
+
+echo -e "\n-------------------" >> "$OUTPUT"
+echo -e "  User Identity" >> "$OUTPUT"
+echo -e "-------------------\n" >> "$OUTPUT"
+
+printf "%s\n" "$USER_ID" >> "$OUTPUT"
+
+
+echo -e "\n-------------------" >> "$OUTPUT"
+echo -e "   User groups" >> "$OUTPUT"
+echo -e "-------------------\n" >> "$OUTPUT"
+
+printf "%s\n" "$USER_GROUPS" >> "$OUTPUT"
+
+echo -e "\n-------------------" >> "$OUTPUT"
+echo -e " Sudo permissions" >> "$OUTPUT"
+echo -e "-------------------\n" >> "$OUTPUT"
+
+if [[ -n "$SUDO_PERMISSIONS" ]]; then
+	printf "%s\n" "$SUDO_PERMISSIONS" >> "$OUTPUT"
+else 
+	echo "User cannot run sudo or password is required" >> "$OUTPUT"
+fi
