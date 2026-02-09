@@ -1,0 +1,116 @@
+guest-6i4krq@vtcsec:/tmp$ cat output.txt
+Linux Enumeration Script
+Mon Feb 9 14:59:32 EST 2026
+
+====================
+   OS information
+====================
+
+Distro name        : Ubuntu
+Distro version     : 16.04.3 LTS (Xenial Xerus)
+Distro ID          : ubuntu
+Based on           : debian
+
+====================
+ Kernel Information
+====================
+
+Kernel name        : Linux
+Hostname           : vtcsec
+Kernel release     : 4.10.0-28-generic
+Kernel version     : #32~16.04.2-Ubuntu SMP Thu Jul 20 10:19:48 UTC 2017
+Architecture       : x86_64
+
+===================
+       Users
+===================
+
+-------------------
+   Logged users
+-------------------
+
+guest-6i4krq tty7        2026-02-09 14:56 (:0)
+
+-------------------
+  Terminal users
+-------------------
+
+root:x:0:0:root:/root:/bin/bash
+marlinspike:x:1000:1000:marlinspike,,,:/home/marlinspike:/bin/bash
+guest-fwttzj:x:999:999:Guest:/tmp/guest-fwttzj:/bin/bash
+guest-6i4krq:x:998:998:Guest:/tmp/guest-6i4krq:/bin/bash
+
+===================
+      Binaries
+===================
+
+-------------------
+   SUID Binaries
+-------------------
+
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/lib/xorg/Xorg.wrap
+/usr/lib/snapd/snap-confine
+/usr/lib/x86_64-linux-gnu/oxide-qt/chrome-sandbox
+/usr/lib/openssh/ssh-keysign
+/usr/bin/pkexec
+/usr/bin/newgrp
+/usr/bin/chsh
+/usr/bin/sudo
+/usr/bin/chfn
+/usr/bin/gpasswd
+/usr/sbin/pppd
+/bin/ping6
+/bin/fusermount
+/bin/umount
+/bin/su
+/bin/ping
+/bin/mount
+/bin/ntfs-3g
+
+-------------------
+   SGID Binaries
+-------------------
+
+/usr/lib/xorg/Xorg.wrap
+/usr/lib/evolution/camel-lock-helper-1.2
+/usr/lib/x86_64-linux-gnu/utempter/utempter
+/usr/bin/ssh-agent
+/usr/bin/mlocate
+/usr/bin/bsd-write
+/usr/bin/wall
+/usr/bin/expiry
+/usr/bin/chage
+/usr/bin/crontab
+/sbin/unix_chkpwd
+/sbin/pam_extrausers_chkpwd
+
+===================
+   User context
+===================
+
+-------------------
+   Current user
+-------------------
+
+guest-6i4krq
+
+-------------------
+  User Identity
+-------------------
+
+uid=998(guest-6i4krq) gid=998(guest-6i4krq) groups=998(guest-6i4krq)
+
+-------------------
+   User groups
+-------------------
+
+guest-6i4krq
+
+-------------------
+ Sudo permissions
+-------------------
+
+User cannot run sudo or password is required
